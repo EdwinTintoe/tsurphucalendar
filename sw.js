@@ -1,6 +1,7 @@
-const CACHE_NAME = "tsurphucalendar-v1.2";
+const CACHE_NAME = "tsurphucalendar-static-v1";
+const DATA_CACHE = "tsurphucalendar-data-v1";
 
-// List all files to cache for offline use
+// List static assets to cach
 const urlsToCache = [
   "index.html",
 
@@ -72,57 +73,65 @@ const urlsToCache = [
   "assets/specials/Karmapa-4.jpg",
   "assets/specials/Karmapa-5.jpg",
   "assets/specials/Karmapa-6.jpg",
-  "assets/specials/Karmapa-7.jpg",
+  "assets/specials/Karmapa7.jpg",
   "assets/specials/Karmapa-8.jpg",
   "assets/specials/Karmapa-9.jpg",
   "assets/specials/gampopa.jpg",
   "assets/specials/marpa.jpg",
   "assets/specials/Mila.jpg"
 ];
-
-// Install event — cache all files upfront
-// self.addEventListener("install", event => {
-//   event.waitUntil(
-//     caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
-//   );
-// });
+// Install event — cache static assets
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(async cache => {
-      for (const url of urlsToCache) {
-        try {
-          await cache.add(url);
-          console.log("Cached:", url);
-        } catch (e) {
-          console.error("FAILED TO CACHE:", url);
-        }
-      }
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
 });
-// Activate event — clean up old caches
+
+// Activate event — clean old caches
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
         keys.map(key => {
-          if (key !== CACHE_NAME) return caches.delete(key);
+          if (key !== CACHE_NAME && key !== DATA_CACHE) {
+            return caches.delete(key);
+          }
         })
       )
     )
   );
 });
 
-// Fetch event — network first, fallback to cache
+// Fetch event — network-first with cache fallback
 self.addEventListener("fetch", event => {
+  const url = new URL(event.request.url);
+
+  // Dynamic JSON: use DATA_CACHE
+  if (url.pathname.startsWith("/data/")) {
+    event.respondWith(
+      fetch(event.request)
+        .then(res => {
+          if (res.status === 200) {
+            const resClone = res.clone();
+            caches.open(DATA_CACHE).then(cache => cache.put(event.request, resClone));
+          }
+          return res;
+        })
+        .catch(() => caches.match(event.request, { cacheName: DATA_CACHE }))
+    );
+    return;
+  }
+
+  // Static assets: network-first
   event.respondWith(
     fetch(event.request)
       .then(networkResponse => {
-        // Update cache with latest response
-        const responseClone = networkResponse.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseClone));
+        if (networkResponse.status === 200) {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseClone));
+        }
         return networkResponse;
       })
-      .catch(() => caches.match(event.request)) // fallback if offline
+      .catch(() => caches.match(event.request, { cacheName: CACHE_NAME }))
   );
 });

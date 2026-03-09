@@ -1,4 +1,80 @@
-// Initialize App with parameters
+// --- Load cached data from localStorage ---
+const cached = localStorage.getItem('calendar');
+let database = databaseDefault;
+let astro = astroDefault;
+let astroData = astroDataDefault;
+let specials = specialsDefault;
+let cachedVersion = 0;
+
+if (cached) {
+  try {
+    const cachedData = JSON.parse(cached);
+    database = cachedData.database || databaseDefault;
+    astro = cachedData.astro || astroDefault;
+    astroData = cachedData.astroData || astroDataDefault;
+    specials = cachedData.specials || specialsDefault;
+    cachedVersion = cachedData.version || 0;
+  } catch(e) {
+    console.warn('Cached JSON parse failed, using defaults');
+  }
+}
+
+// --- Render immediately using cached/bundled data ---
+renderCalendar(database, astro, astroData, specials);
+
+// --- Helper to fetch JSON with cache-busting ---
+async function fetchJSON(url) {
+  try {
+    const res = await fetch(`${url}?v=${Date.now()}`, { cache: "no-store" });
+    return await res.json();
+  } catch (err) {
+    // If network fails, try service worker cache
+    const cache = await caches.open("tsurphucalendar-data-v1");
+    const cachedRes = await cache.match(url);
+    if (cachedRes) return await cachedRes.json();
+    throw err;
+  }
+}
+
+// --- Fetch remote JSON files asynchronously in background ---
+async function updateFromWeb() {
+  const urls = [
+    "/data/database.json",
+    "/data/astro.json",
+    "/data/astroData.json",
+    "/data/specials.json"
+  ];
+
+  try {
+    const [db, a, aData, sp] = await Promise.all(urls.map(fetchJSON));
+    const remoteVersion = db.version || 0;
+
+    if (remoteVersion > cachedVersion) {
+      database = db.data || db || database;
+      astro = a.data || a || astro;
+      astroData = aData.data || aData || astroData;
+      specials = sp.data || sp || specials;
+
+      // Update localStorage with version
+      localStorage.setItem('calendar', JSON.stringify({
+        database,
+        astro,
+        astroData,
+        specials,
+        version: remoteVersion
+      }));
+      console.log(`Updated remote data (version ${remoteVersion})`);
+    } else {
+      console.log(`Remote version (${remoteVersion}) not newer than cached (${cachedVersion})`);
+    }
+  } catch (err) {
+    console.warn('Remote fetch failed, keeping cached/local version', err);
+  }
+}
+
+// --- Call background updater ---
+updateFromWeb();// Initialize App with parameters
+
 var $ = Dom7;
 // /////////////////////////////////////////////make sure to review initialization and translating functions, when called,
 var device = Framework7.getDevice();
