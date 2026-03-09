@@ -35,10 +35,10 @@ async function fetchJSON(url) {
 // --- Fetch remote JSON files asynchronously in background ---
 async function updateFromWeb() {
   const urls = [
-    "data/database.json",
-    "data/astro.json",
-    "data/astroData.json",
-    "data/specials.json"
+    "/data/database.json",
+    "/data/astro.json",
+    "/data/astroData.json",
+    "/data/specials.json"
   ];
 
   try {
