@@ -1,4 +1,4 @@
-const CACHE_NAME = "tsurphucalendar-v1.1";
+const CACHE_NAME = "tsurphucalendar-v1.2";
 
 // List all files to cache for offline use
 const urlsToCache = [
@@ -82,12 +82,25 @@ const urlsToCache = [
 ];
 
 // Install event — cache all files upfront
+// self.addEventListener("install", event => {
+//   event.waitUntil(
+//     caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+//   );
+// });
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(async cache => {
+      for (const url of urlsToCache) {
+        try {
+          await cache.add(url);
+          console.log("Cached:", url);
+        } catch (e) {
+          console.error("FAILED TO CACHE:", url);
+        }
+      }
+    })
   );
 });
-
 // Activate event — clean up old caches
 self.addEventListener("activate", event => {
   event.waitUntil(
