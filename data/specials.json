@@ -1,0 +1,298 @@
+[
+    {
+        "specID": "mb",
+        "enName": "Medicine Buddha day",
+        "boName": "སངས་རྒྱས་སྨན་བླ།",
+        "img": "mb.svg"
+    },
+    {
+        "specID": "gr",
+        "enName": "Guru Rinpoche day",
+        "boName": "གུ་རུ་རིན་པོ་ཆེ།",
+        "img": "gr.svg"
+    },
+    {
+        "specID": "fm",
+        "enName": "Full Moon",
+        "boName": "ཉ་གང།",
+        "img": "fm.svg"
+    },
+    {
+        "specID": "nm",
+        "enName": "New Moon",
+        "boName": "གནམ་སྟོང།",
+        "img": "nm.svg"
+    },
+    {
+        "specID": "dk",
+        "enName": "Vajrayogini day",
+        "boName": "རྡོ་རྗེ་རྣལ་འབྱོར་མ།",
+        "img": "dk.svg"
+    },
+    {
+        "specID": "dp",
+        "enName": "Dharma Protector day",
+        "boName": "ཆོས་སྐྱོང།",
+        "img": "dp.svg"
+    },
+    {
+        "specID": "lu",
+        "enName": "Lutheb",
+        "boName": "ཀླུ་ཐེབས",
+        "img": "lu.svg"
+    },
+    {
+        "specID": "baden",
+        "enName": "Baden",
+        "boName": "བ་དན",
+        "img": "baden.svg"
+    },
+    {
+        "specID": "yen",
+        "enName": "Yenkong",
+        "boName": "ཡན་ཀྭོང"
+    },
+    {
+        "specID": "zha",
+        "enName": "Zhangen",
+        "boName": "ཞག་ངན"
+    },
+    {
+        "specID": "nyin",
+        "enName": "Nyinnag",
+        "boName": "ཉི་ནག"
+    },
+    {
+        "specID": "ul",
+        "enName": "Ullag",
+        "boName": "དབུལ་ལག"
+    },
+    {
+        "specID": "so14",
+        "enName": "Sojong",
+        "boName": "གསོ་སྦྱོང་བཅུ་བཞི་པ།",
+        "img": "sojong.svg"
+    },
+    {
+        "specID": "so15",
+        "enName": "Sojong",
+        "boName": "གསོ་སྦྱོང་བཅོ་ལྔ་པ།",
+        "img": "sojong.svg"
+    },
+    {
+        "specID": "so88",
+        "enName": "Sojong",
+        "boName": "བཀྲ་ཤིས་པའི་གསོ་སྦྱོང།",
+        "img": "sojong.svg"
+    },
+    {
+        "specID": "s1",
+        "enName": "Tibetan New Year",
+        "boName": "བོད་རྒྱལ་པོའ་ལོ་གསར།"
+    },
+    {
+        "specID": "s2",
+        "enName": "Nine Bad Omens Day",
+        "boName": "ཉི་ནག་ངན་པ་དགུ་འཛོམས།"
+    },
+    {
+        "specID": "s3",
+        "enName": "Parinirvana Anniversary of the 6th Karmapa Tongwa Dondan",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་དྲུག་པ་མཐོང་བ་དོན་ལྡན་གྱི་དུས་མཆོད།",
+        "img": "Karmapa-6.jpg"
+    },
+    {
+        "specID": "s4",
+        "enName": "Birthday of His Eminence the 12th Tai Situ Rinpoche",
+        "boName": "༸ བྱམས་མགོན་ཏཱའི་སི་ཏུ་རིན་པོ་ཆེའི་འཁྲུངས་སྐར།"
+    },
+    {
+        "specID": "s5",
+        "enName": "Parinirvana Anniversary of Great Yogi Milarepa",
+        "boName": "གངས་ཅན་གྲུབ་པའི་དབང་ཕྱུག་རྗེ་མི་ལའི་འདས་མཆོད།",
+        "img": "Mila.jpg"
+    },
+    {
+        "specID": "s7",
+        "enName": "Parinirvana Anniversary of Lord Marpa",
+        "boName": "མངའ་བདག་མར་པ་ལོ་ཙྭ་པའི་དུས་དྲན།",
+        "img": "marpa.jpg"
+    },
+    {
+        "specID": "s8",
+        "enName": "Parinirvana Anniversary of the 7th Karmapa Chodrag Gyatsho",
+        "boName": "༸རྒྱལ་དབང་ཀརྨ་པ་བདུན་པ་ཆོས་གྲགས་རྒྱ་མཚོའི་དུས་དྲན།",
+        "img": "Karmapa7.jpg"
+    },
+    {
+        "specID": "s9",
+        "enName": "Parinirvana Anniversary of the 14th Karmapa Thegchok Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་བཅུ་བཞི་པ་ཐེག་མཆོག་རྡོ་རྗེའི་དུས་མཆོད།",
+        "img": "Karmapa-14.jpg"
+    },
+    {
+        "specID": "s10",
+        "enName": "Parinirvana Anniversary of the 13th Karmapa Dudul Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་བཅུ་གསུམ་པ་བདུད་འདུལ་རྡོ་རྗེའི་དུས་དྲན།",
+        "img": "Karmapa-13.jpg"
+    },
+    {
+        "specID": "s11",
+        "enName": "Parinirvana Anniversary of the 9th Karmapa Wangchug Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་དགུ་པ་དབང་ཕྱུག་རྡོ་རྗེའི་འདས་མཆོད།",
+        "img": "Karmapa-9.jpg"
+    },
+    {
+        "specID": "s13",
+        "enName": "Parinirvana Anniversary of the 10th Karmapa Choying Dorje",
+        "boName": "༸ རྒྱལ་བ་ཀརྨ་པ་བཅུ་པ་ཆོས་དབྱིངས་རྡོ་རྗེའི་དུས་དྲན།",
+        "img": "Karmapa-10.jpg"
+    },
+    {
+        "specID": "s14",
+        "enName": "Kalachakra New Year",
+        "boName": "དུས་འཁོར་རྒྱུད་ལུགས་ལོ་གསར།"
+    },
+    {
+        "specID": "s15",
+        "enName": "Anniversary of the First Kalachakra Sermon at Amaravati",
+        "boName": "འབྲས་སྤུངས་སུ་དུས་འཁོར་གསུངས་པའི་དུས་ཆེན།"
+    },
+    {
+        "specID": "s16",
+        "enName": "Parinirvana Anniversary of the 15th Karmapa Khakyab Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་བཅོ་ལྔ་པ་མཁའ་ཁྱབ་རྡོ་རྗེའི་དུས་མཆོད།",
+        "img": "Karmapa-15.jpg"
+    },
+    {
+        "specID": "s17",
+        "enName": "Birthday of Maha Buddha Shakyamuni",
+        "boName": "སངས་རྒྱས་སྐུ་བལྟམས་པའི་དུས་དྲན།"
+    },
+    {
+        "specID": "s18",
+        "enName": "Vesak - Lunar day of Buddha's Enlightement and Parinivana",
+        "boName": "སྟོན་པ་རྫོགས་སངས་རྒྱས་པ་དང་ཞི་བར་གཤེགས་པའི་དུས་ཆེན།"
+    },
+    {
+        "specID": "s19",
+        "enName": "Birthday of His Eminence the 11th Palden Pawo Rinpoche",
+        "boName": "གནས་གནང་དཔའ་བོ་རིན་པོ་ཆེའི་འཁྲུངས་སྐར།"
+    },
+    {
+        "specID": "s20",
+        "enName": "Birthday of H.H. the 17th Gyalwang Karmapa Orgyen Trinley Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་ཨོ་རྒྱན་ཕྲིན་ལས་རྡོ་རྗེ་མཆོག་གི་འཁྲུངས་སྐར།",
+        "img": "HHGKFull2010.jpg"
+    },
+    {
+        "specID": "s21",
+        "enName": "Birthday of the 12th Zurmang Ghurwang Rinpoche",
+        "boName": "༸ སྐྱབས་རྗེ་ཟུར་མང་གར་དབང་རིན་པོ་ཆེའི་འཁྲུངས་སྐར།"
+    },
+    {
+        "specID": "s22",
+        "enName": "The Universal Incense Offering",
+        "boName": "འཛམ་གླིང་སྤྱི་བསང།"
+    },
+    {
+        "specID": "s23",
+        "enName": "Birthday of His Eminence the 12th Goshir Gyaltsab Rinpoche",
+        "boName": "གཽ་ཤྲཱི་རྒྱལ་ཚབ་རིན་པོ་ཆེའི་འཁྲུངས་སྐར།"
+    },
+    {
+        "specID": "s24",
+        "enName": "Birthday of His Holiness the 14th Dalai Lama",
+        "boName": "༸ སྤྱི་ནོར་གོང་ས་ཆེན་པོ་མཆོག་གི་འཁྲུངས་སྐར།"
+    },
+    {
+        "specID": "s25",
+        "enName": "Chokhor Duchen - the first turning of the wheel of Dharma",
+        "boName": "བདེན་བཞིའི་ཆོས་འཁོར་བསྐོར་བའི་དུས་ཆེན།"
+    },
+    {
+        "specID": "s26",
+        "enName": "Birthday of the 4th Tenga Rinpoche",
+        "boName": "༸ སྐྱབས་རྗེ་བསྟན་དགའ་རིན་པོ་ཆེའི་འཁྲུངས་སྐར།"
+    },
+    {
+        "specID": "s27",
+        "enName": "Parinirvana Anniversary of the 3rd Karmapa Rangjung Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་གསུམ་པ་རང་བྱུང་རྡོ་རྗེའི་འདས་མཆོད།",
+        "img": "Karmapa-3.jpg"
+    },
+    {
+        "specID": "s28",
+        "enName": "Parinirvana Anniversary of Lord Gampopa",
+        "boName": "མཉམ་མེད་སྒམ་པོ་པའི་འདས་མཆོད།",
+        "img": "gampopa.jpg"
+    },
+    {
+        "specID": "s29",
+        "enName": "Parinirvana Anniversary of the 11th Karmapa Yeshe Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་བཅུ་གཅིག་པ་ཡེ་ཤེས་རྡོ་རྗེའི་དུས་དྲན།",
+        "img": "Karmapa-11.jpg"
+    },
+    {
+        "specID": "s30",
+        "enName": "Parinirvana Anniversary of the 4th Karmapa Rolpe Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་བཞི་པ་རོལ་པའི་རྡོ་རྗེའི་དུས་མཆོད།",
+        "img": "Karmapa-4.jpg"
+    },
+    {
+        "specID": "s31",
+        "enName": "Parinirvana Anniversary of the 5th Karmapa Dezhin Shegpa",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་ལྔ་པ་དེ་བཞིན་གཤེགས་པའི་དུས་མཆོད།",
+        "img": "Karmapa-5.jpg"
+    },
+    {
+        "specID": "s32",
+        "enName": "Parinirvana Anniversary of the 8th Karmapa Mikyo Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་བརྒྱད་པ་མི་བསྐྱོད་རྡོ་རྗེའི་དུས་མཆོད།",
+        "img": "Karmapa-8.jpg"
+    },
+    {
+        "specID": "s33",
+        "enName": "Parinirvana Anniversary of Akong Rinpoche",
+        "boName": "༸ ཨ་དཀོན་རིན་པོ་ཆེའི་དུས་མཆོད།",
+        "img": "Akong.jpg"
+    },
+    {
+        "specID": "s34",
+        "enName": "Parinirvana Anniversary of the 2nd Karmapa Karma Pakshi",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་གཉིས་པ་ཀརྨ་པཀྵིའི་འདས་མཆོད།",
+        "img": "Karmapa-2.jpg"
+    },
+    {
+        "specID": "s35",
+        "enName": "Parinirvana Anniversary of the 16th Karmapa Rangjung Rigpe Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་བཅུ་དྲུག་པ་རིག་པའི་རྡོ་རྗེའི་དུས་མཆོད།"
+    },
+    {
+        "specID": "s36",
+        "enName": "Lhabab Duchen - Buddha Shakyamuni's descent from heaven",
+        "boName": "༸ རྒྱལ་བ་ལྷ་ལས་བབས་པའི་དུས་ཆེན།"
+    },
+    {
+        "specID": "s37",
+        "enName": "Birthday of His Eminence the 10th Sangye Nyenpa Rinpoche",
+        "boName": "༸ སྐྱབས་རྗེ་སངས་རྒྱས་མཉན་པ་རིན་པོ་ཆེའི་འཁྲུངས་སྐར"
+    },
+    {
+        "specID": "s38",
+        "enName": "Birthday of His Eminence the 4th Jamgon Rinpoche",
+        "boName": "༸ སྐྱབས་རྗེ་འཇམ་མགོན་ཀོང་སྤྲུལ་རིན་པོ་ཆེའི་འཁྲུངས་སྐར།"
+    },
+    {
+        "specID": "s39",
+        "enName": "Parinirvana Anniversary of the 12th Karmapa Jangchub Dorje",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་བཅུ་གཉིས་པ་བྱང་ཆུབ་རྡོ་རྗེའི་དུས་མཆོད།",
+        "img": "Karmapa-12.jpg"
+    },
+    {
+        "specID": "s40",
+        "enName": "Parinirvana Anniversary of the 1st Karmapa Dusum Khyenpa",
+        "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་དང་པོ་དུས་གསུམ་མཁྱེན་པའི་དུས་མཆོད།",
+        "img": "Karmapa-1.jpg"
+    }
+]
