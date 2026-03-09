@@ -35,10 +35,10 @@ async function fetchJSON(url) {
 // --- Fetch remote JSON files asynchronously in background ---
 async function updateFromWeb() {
   const urls = [
-    "/data/database.json",
-    "/data/astro.json",
-    "/data/astroData.json",
-    "/data/specials.json"
+    "data/database.json",
+    "data/astro.json",
+    "data/astroData.json",
+    "data/specials.json"
   ];
 
   try {
@@ -47,9 +47,9 @@ async function updateFromWeb() {
 
     if (remoteVersion > cachedVersion) {
       database = db.data || db || database;
-      astro = a.data || a || astro;
-      astroData = aData.data || aData || astroData;
-      specials = sp.data || sp || specials;
+      astro = a|| a || astro;
+      astroData = aData || aData || astroData;
+      specials = sp || sp || specials;
 
       // Update localStorage with version
       localStorage.setItem('calendar', JSON.stringify({
