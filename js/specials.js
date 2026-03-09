@@ -1,4 +1,4 @@
-const specials = [
+const specialsDefault = [
     {
         "specID": "mb",
         "enName": "Medicine Buddha day",
@@ -14,13 +14,13 @@ const specials = [
     {
         "specID": "fm",
         "enName": "Full Moon",
-        "boName": "ཉ་གང་།",
+        "boName": "ཉ་གང།",
         "img": "fm.svg"
     },
     {
         "specID": "nm",
         "enName": "New Moon",
-        "boName": "གནམ་སྟོང་།",
+        "boName": "གནམ་སྟོང།",
         "img": "nm.svg"
     },
     {
@@ -32,7 +32,7 @@ const specials = [
     {
         "specID": "dp",
         "enName": "Dharma Protector day",
-        "boName": "ཆོས་སྐྱོང་།",
+        "boName": "ཆོས་སྐྱོང།",
         "img": "dp.svg"
     },
     {
@@ -113,11 +113,6 @@ const specials = [
         "img": "Mila.jpg"
     },
     {
-        "specID": "s6",
-        "enName": "??????",
-        "boName": "ཆོས་འཕྲུལ་དུས་ཆེན།"
-    },
-    {
         "specID": "s7",
         "enName": "Parinirvana Anniversary of Lord Marpa",
         "boName": "མངའ་བདག་མར་པ་ལོ་ཙྭ་པའི་དུས་དྲན།",
@@ -146,11 +141,6 @@ const specials = [
         "enName": "Parinirvana Anniversary of the 9th Karmapa Wangchug Dorje",
         "boName": "༸ རྒྱལ་དབང་ཀརྨ་པ་དགུ་པ་དབང་ཕྱུག་རྡོ་རྗེའི་འདས་མཆོད།",
         "img": "Karmapa-9.jpg"
-    },
-    {
-        "specID": "s12",
-        "enName": "Khenchen Tsulthim Gyatso Rinpoche's Birthday",
-        "boName": "༸ སྐྱབས་རྗེ་མཁན་ཆེན་ཚུལ་ཁྲིམས་རྒྱ་མཚོ་རིན་པོ་ཆེའི་འཁྲུངས་སྐར།"
     },
     {
         "specID": "s13",

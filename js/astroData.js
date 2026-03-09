@@ -1,4 +1,4 @@
-const astroData = [
+const astroDataDefault = [
     {
         "id": 0,
         "a": "Jupiter",

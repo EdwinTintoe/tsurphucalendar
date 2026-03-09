@@ -1,59 +1,45 @@
-const astro = [
+const astroDefault = [
     {
         "astroID": "a1",
         "category": "planets",
         "enName": "Moon",
-        "boName": "ཟླ",
-        "enText": "",
-        "boText": ""
+        "boName": "ཟླ"
     },
     {
         "astroID": "a2",
         "category": "planets",
         "enName": "Mars",
-        "boName": "དམར",
-        "enText": "",
-        "boText": ""
+        "boName": "དམར"
     },
     {
         "astroID": "a3",
         "category": "planets",
         "enName": "Mercury",
-        "boName": "ལྷག",
-        "enText": "",
-        "boText": ""
+        "boName": "ལྷག"
     },
     {
         "astroID": "a4",
         "category": "planets",
         "enName": "Jupiter",
-        "boName": "ཕུར",
-        "enText": "",
-        "boText": ""
+        "boName": "ཕུར"
     },
     {
         "astroID": "a5",
         "category": "planets",
         "enName": "Venus",
-        "boName": "སངས",
-        "enText": "",
-        "boText": ""
+        "boName": "སངས"
     },
     {
         "astroID": "a6",
         "category": "planets",
         "enName": "Saturn",
-        "boName": "སྤེན",
-        "enText": "",
-        "boText": ""
+        "boName": "སྤེན"
     },
     {
         "astroID": "a7",
         "category": "planets",
         "enName": "Sun",
-        "boName": "ཉི",
-        "enText": "",
-        "boText": ""
+        "boName": "ཉི"
     },
     {
         "astroID": "group1",
@@ -72,7 +58,7 @@ const astro = [
     },
     {
         "astroID": "group4",
-        "enText": "Mansions that brings negative results. On these days the result of negative actions such as destruction, waging war, stealing, killing and all sorts of violence, are multiplied.",
+        "enText": "Mansion that brings negative results. On these days the result of negative actions such as destruction, waging war, stealing, killing and all sorts of violence, are multiplied.",
         "boText": "ལག་དང་སྐག་དང་སྣྲོན་དང་སྣྲུབས། །འབྲས་བུ་ངན་པའི་སྐར་མ་བཞིར། །འཇོམས་འཕྲོག་དྲག་པོའི་ལས་ལ་སོགས།།ངན་པར་སྤྱོད་པའི་ལས་རྣམས་བཟང།།"
     },
     {
@@ -291,7 +277,7 @@ const astro = [
         "category": "elemental",
         "enName": "Earth-Earth",
         "boName": "ས་གཉིས",
-        "enText": "Positive combination. Earth-earth leads to accomplishment. Accomplishment enables all our wishes to be fulfilled. Good for laying foundations, for building and all activities related to the earth, for reunions and for long-term activities.",
+        "enText": "Leads to accomplishment. Accomplishment enables all our wishes to be fulfilled. Good for laying foundations, for building and all activities related to the earth, for reunions and for long-term activities.",
         "boText": "ས་གཉིས་འཕྲད་པ་དངོས་གྲུབ་སྦྱོར། །དངོས་གྲུབ་སྦྱོར་བས་ཅི་བསམ་འགྲུབ། །རྟེན་བཞེངས་མཁར་བརྩིག་ཞིིང་ཉོ་བ། །རྒྱས་པའི་ལས་རྣམས་བྱ་བ་དང་། །མདུན་མ་བྱེད་སོགས་བརྟན་ལས་བཟང།།"
     },
     {
@@ -299,7 +285,7 @@ const astro = [
         "category": "elemental",
         "enName": "Water-Water",
         "boName": "ཆུ་གཉིས",
-        "enText": "Positive combination. Water-water brings nectar and increases life and strength. Good for receiving long-life empowerment and practicing long-life rituals, for activities related to medicine, for cleansing and marriage, family matters and commerce.",
+        "enText": "Brings nectar and increases life and strength. Good for receiving long-life empowerment and practicing long-life rituals, for activities related to medicine, for cleansing and marriage, family matters and commerce.",
         "boText": "ཆུ་གཉིས་འཕྲད་པ་བདུད་རྩི་སྦྱོར། །བདུད་རྩི་སྦྱོར་བས་ཚེ་སྟོབས་འཕེལ། །སྨན་སྦྱོར་ཁྲུས་བྱེད་བག་མ་ལེན། །ཚེ་དབང་ཚེ་སྒྲུབ་ཆོ་ག་དང་། །གཉེན་དང་ཚོང་བསྐྱེད་འཕེལ་ལས་བཟང།།"
     },
     {
@@ -307,7 +293,7 @@ const astro = [
         "category": "elemental",
         "enName": "Earth-Water",
         "boName": "ས་ཆུ",
-        "enText": "Positive combination. Water-earth brings youthfulness, leading to constant happiness. Good for dressing up, festivals, amusement and feasting.",
+        "enText": "Brings youthfulness, leading to constant happiness. Good for dressing up, festivals, amusement and feasting.",
         "boText": "ས་ཆུ་འཕྲད་པ་ལང་ཚོ་སྦྱོར། །ལང་ཚོ་སྦྱོར་བས་ཤིན་ཏུ་སྐྱིད། །དགའ་སྟོན་བྱ་ཞིང་ཆེ་སར་འདོན། །གོས་གྱོན་རྒྱན་འདོགས་རོལ་རྩེད་བཟང།།"
     },
     {
@@ -315,7 +301,7 @@ const astro = [
         "category": "elemental",
         "enName": "Fire-Fire",
         "boName": "མེ་གཉིས",
-        "enText": "Curable combination. Fire-fire brings increase, causing one to meet sustenance and riches. Good for commerce, planting seeds and practicing generosity. Practice the wealth goddess, Vasudhara, engage in positive actions, make offerings to wealth deities and one will gain accomplishment.",
+        "enText": "Brings increase, causing one to meet sustenance and riches. Good for commerce, planting seeds and practicing generosity. Practice the wealth goddess, Vasudhara, engage in positive actions, make offerings to wealth deities and one will gain accomplishment.",
         "boText": "མེ་གཉིས་འཕྲད་པ་འཕེལ་འགྱུར་སྦྱོར། །འཕེལ་འགྱུར་སྦྱོར་བས་ཟས་གོས་རྙེད། ཚོང་བྱ་སྦྱིན་གཏོང་ས་བོན་འདེབས། །ནོར་སྦྱིན་མ་སྒྲུབ་ཆུ་སྦྱིན་སྟེར། །ནོར་ལྷ་མཆོད་ཅིང་དངོས་གྲུབ་ཞུ།།"
     },
     {
@@ -323,7 +309,7 @@ const astro = [
         "category": "elemental",
         "enName": "Wind-Wind",
         "boName": "རླུང་གཉིས",
-        "enText": "Curable combination. Wind-wind leads to excellence. Excellence accomplishes everything rapidly. Good for travelling, reunions, and all quick and changing activities.",
+        "enText": "Leads to excellence. Excellence accomplishes everything rapidly. Good for travelling, reunions, and all quick and changing activities.",
         "boText": "རླུང་གཉིས་འཕྲད་པ་ཕུན་ཚོགས་སྦྱོར། །ཕུན་ཚོགས་སྦྱོར་བས་བསམ་མྱུར་འགྲུབ།།འགྲུལ་བྱ་དོན་གཉེར་ཁ་མཆུ་བསྡུམས། །གཡོ་དྲག་མྱུར་བའི་ལས་རྣམས་བཟང།།"
     },
     {
@@ -331,7 +317,7 @@ const astro = [
         "category": "elemental",
         "enName": "Fire-Wind",
         "boName": "མེ་རླུང",
-        "enText": "Curable combination. Fire-wind brings strength. Strength brings auspiciousness. Engage in religious ceremonies and practice the Dharma.",
+        "enText": "Brings strength. Strength brings auspiciousness. Engage in religious ceremonies and practice the Dharma.",
         "boText": "མེ་རླུང་འཕྲད་པ་སྟོབས་ལྡན་སྦྱོར། །སྟོབས་ལྡན་སྦྱོར་བས་བཀྲ་ཤིས་བྱེད། །རིམ་གྲོ་ལྷ་གསོལ་ཆོས་སྤྱོད་བྱ། །ཞི་རྒྱས་དབང་གི་ལས་རྣམས་འགྲུབ།།"
     },
     {
@@ -339,7 +325,7 @@ const astro = [
         "category": "elemental",
         "enName": "Earth-Wind",
         "boName": "ས་རླུང",
-        "enText": "Negative combination. Earth-wind brings discord. Discord leads to loss of sustenance and wealth. Violent robbery, thieving and plundering take place. Grief prevents anything from being achieved.",
+        "enText": "Brings discord. Discord leads to loss of sustenance and wealth. Violent robbery, thieving and plundering take place. Grief prevents anything from being achieved.",
         "boText": "ས་རླུང་འཕྲད་པ་མི་འཕྲོད་སྦྱོར། །མི་འཕྲོད་སྦྱོར་བས་ཟས་ནོར་འཛད། །ཇག་རྐུན་འཇོམས་འཕྲོག་བྱེད་པ་སོགས། །མྱ་ངན་འོང་བས་དོན་མི་འགྲུབ།།"
     },
     {
@@ -347,7 +333,7 @@ const astro = [
         "category": "elemental",
         "enName": "Water-Wind",
         "boName": "ཆུ་རླུང",
-        "enText": "Negative combination. Water-wind brings disharmony, separating friends and relatives. Divisive action, slander and activities to expel enemies will be successful.",
+        "enText": "Brings disharmony, separating friends and relatives. Divisive action, slander and activities to expel enemies will be successful.",
         "boText": "ཆུ་རླུང་འཕྲད་པ་མི་མཐུན་སྦྱོར། །མི་མཐུན་སྦྱོར་བས་གཉེན་བཤེས་འབྱེད། །དབེན་དང་ཕྲ་མ་འཇུག་པ་དང་། །དགྲ་བོ་དབྱུང་བའི་ལས་རྣམས་རྒྱལ།།"
     },
     {
@@ -355,7 +341,7 @@ const astro = [
         "category": "elemental",
         "enName": "Earth-Fire",
         "boName": "ས་མེ",
-        "enText": "Negative combination. Earth-fire brings burning which leads to suffering. Waging wars, annihilating enemies, violence and everything that makes adversaries suffer will be powerful.",
+        "enText": "Brings burning which leads to suffering. Waging wars, annihilating enemies, violence and everything that makes adversaries suffer will be powerful.",
         "boText": "ས་མེ་འཕྲད་པ་སྲེག་པའི་སྦྱོར། །སྲེག་པའི་སྦྱོར་བས་སྡུག་བསྔལ་བསྐྱེད། །དམག་འདྲེན་དགྲ་གཞོམ་དྲག་ལས་རྩོད། །ཕ་རོལ་སྡུག་བསྔལ་བསྐྱེད་སོགས་མཐུ།།"
     },
     {
@@ -363,7 +349,7 @@ const astro = [
         "category": "elemental",
         "enName": "Fire-Water",
         "boName": "མེ་ཆུ",
-        "enText": "Fatal combination. Fire-water brings death. Death destroys life force. Killing, creating poison and casting curses will be powerful.",
+        "enText": "Brings death. Death destroys life force. Killing, creating poison and casting curses will be powerful.",
         "boText": "མེ་ཆུ་འཕྲད་པ་འཆི་བའི་སྦྱོར། །འཆི་བའི་སྦྱོར་བས་སྲོག་འཕྲོག་བྱེད། །ཕ་རོལ་གསོད་དང་དུག་སྦྱོར་དང་། །མཐུ་གཏད་བསྒྲུབ་སོགས་མྱུར་སྟོབས་ཆེ། །འདིར་ནི་བཟང་གསུམ་གསོ་ཐུབ་གསུམ། །ངན་གསུམ་ཐ་ཆད་གཅིག་དང་བཅུས། །བྱ་བ་ཀུན་ལ་བཟང་ངན་བྱེད།།"
     },
     {
@@ -603,7 +589,7 @@ const astro = [
         "category": "skyDoors",
         "enName": "Business",
         "boName": "ཚོང",
-        "enText": "Business unfavourable good for starting new business.",
+        "enText": "Business is unfavourable for starting new business.",
         "boText": "ཚོང་ལས་འགོ་འཛུགས་རིགས་མི་རུང།"
     },
     {
@@ -683,7 +669,7 @@ const astro = [
         "category": "earthLord",
         "enName": "Segtse",
         "boName": "སྲེག་ཚེས",
-        "enText": "Activities accumulating merit. taking blood and moxibustion should be avoided.",
+        "enText": "Activities accumulating merit, taking blood and moxibustion should be avoided.",
         "boText": "སྲེག་ཚེས་དུས་སུ་དགེ་ལས་དང་། །གཏར་སྲེག་བྱ་བ་འཛེམས་པར་བྱ།།"
     },
     {
