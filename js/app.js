@@ -68,8 +68,7 @@ async function updateFromWeb() {
   }
 }
 
-// --- Call background updater ---
-updateFromWeb();// Initialize App with parameters
+
 
 var $ = Dom7;
 // /////////////////////////////////////////////make sure to review initialization and translating functions, when called,
@@ -1612,25 +1611,5 @@ function getMoonPhaseRotation () {
   return 360 - Math.floor(currentMoonPhasePercentage * 360)
 }
 
-
-
-// this function can test discrepancies between input data and astro information, to avoid mismatching
-function testAstroData(){
-let testingArr = []
-let correctArr = astro.map((i) => i.enName)
-astroData.forEach(function(item) {
-  let filteredValues = Object.values(item).filter((value) => {
-    return (typeof value !== 'number' && value.split(' ').length < 2)
-  })
-  filteredValues.forEach((value) => {
-    if (!(correctArr.includes(value))){
-      testingArr.push(value, item.id)
-    }
-  })
-})
-console.log(testingArr)
-}
-// astroData.forEach((entry)=>{
-//   let entryString = Object.values(entry).slice(1).join(' ')
-//   $('#tester').append(`<p>${entryString}</p>`)
-// })
+// --- Call background updater ---
+updateFromWeb();// Initialize App with parameters
