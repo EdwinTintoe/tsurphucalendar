@@ -1,4 +1,4 @@
-const CACHE_NAME = "tsurphucalendar-v2";
+const CACHE_NAME = "tsurphucalendar-v1.1";
 
 // List all files to cache for offline use
 const urlsToCache = [
