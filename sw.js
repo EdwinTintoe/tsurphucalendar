@@ -28,7 +28,6 @@ const urlsToCache = [
   "/js/routes.js",
   "/js/store.js",
   "/framework7/framework7-bundle.min.js",
-  "/framework7/framework7-bundle.min.js.map",
 
 
   // Pages
