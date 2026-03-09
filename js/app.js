@@ -18,10 +18,6 @@ if (cached) {
     console.warn('Cached JSON parse failed, using defaults');
   }
 }
-
-// --- Render immediately using cached/bundled data ---
-renderCalendar(database, astro, astroData, specials);
-
 // --- Helper to fetch JSON with cache-busting ---
 async function fetchJSON(url) {
   try {
