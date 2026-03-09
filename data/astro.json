@@ -589,7 +589,7 @@
         "category": "skyDoors",
         "enName": "Business",
         "boName": "ཚོང",
-        "enText": "Business unfavourable good for starting new business.",
+        "enText": "Business is unfavourable for starting new business.",
         "boText": "ཚོང་ལས་འགོ་འཛུགས་རིགས་མི་རུང།"
     },
     {
@@ -669,7 +669,7 @@
         "category": "earthLord",
         "enName": "Segtse",
         "boName": "སྲེག་ཚེས",
-        "enText": "Activities accumulating merit. taking blood and moxibustion should be avoided.",
+        "enText": "Activities accumulating merit, taking blood and moxibustion should be avoided.",
         "boText": "སྲེག་ཚེས་དུས་སུ་དགེ་ལས་དང་། །གཏར་སྲེག་བྱ་བ་འཛེམས་པར་བྱ།།"
     },
     {
