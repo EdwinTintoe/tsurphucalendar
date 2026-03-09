@@ -1,4 +1,4 @@
-const CACHE_NAME = "tsurphucalendar-v1";
+const CACHE_NAME = "tsurphucalendar-v2";
 
 // List all files to cache for offline use
 const urlsToCache = [
@@ -60,26 +60,26 @@ const urlsToCache = [
   "/assets/icon192.png",
   "/assets/icon512.png",
   "/assets/warning.svg",
-  "/assets/Akong.jpg",
-  "/assets/HHGKFull2010.jpg",
-  "/assets/Karmapa-1.jpg",
-  "/assets/Karmapa-10.jpg",
-  "/assets/Karmapa-11.jpg",
-  "/assets/Karmapa-12.jpg",
-  "/assets/Karmapa-13.jpg",
-  "/assets/Karmapa-14.jpg",
-  "/assets/Karmapa-15.jpg",
-  "/assets/Karmapa-2.jpg",
-  "/assets/Karmapa-3.jpg",
-  "/assets/Karmapa-4.jpg",
-  "/assets/Karmapa-5.jpg",
-  "/assets/Karmapa-6.jpg",
-  "/assets/Karmapa-7.jpg",
-  "/assets/Karmapa-8.jpg",
-  "/assets/Karmapa-9.jpg",
-  "/assets/gampopa.jpg",
-  "/assets/marpa.jpg",
-  "/assets/Mila.jpg"
+  "/assets/specials/Akong.jpg",
+  "/assets/specials/HHGKFull2010.jpg",
+  "/assets/specials/Karmapa-1.jpg",
+  "/assets/specials/Karmapa-10.jpg",
+  "/assets/specials/Karmapa-11.jpg",
+  "/assets/specials/Karmapa-12.jpg",
+  "/assets/specials/Karmapa-13.jpg",
+  "/assets/specials/Karmapa-14.jpg",
+  "/assets/specials/Karmapa-15.jpg",
+  "/assets/specials/Karmapa-2.jpg",
+  "/assets/specials/Karmapa-3.jpg",
+  "/assets/specials/Karmapa-4.jpg",
+  "/assets/specials/Karmapa-5.jpg",
+  "/assets/specials/Karmapa-6.jpg",
+  "/assets/specials/Karmapa-7.jpg",
+  "/assets/specials/Karmapa-8.jpg",
+  "/assets/specials/Karmapa-9.jpg",
+  "/assets/specials/gampopa.jpg",
+  "/assets/specials/marpa.jpg",
+  "/assets/specials/Mila.jpg"
 ];
 
 // Install event — cache all files upfront
