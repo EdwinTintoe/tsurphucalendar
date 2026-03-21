@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="preload" href="fonts/NotoSerifTibetan-VariableFont_wght.ttf" as="font" crossorigin>
+  <style>
+    @font-face {
+      font-family: 'Tibetan';
+      font-weight: 500;
+      size-adjust: 105%;
+      src: url(fonts/NotoSerifTibetan-VariableFont_wght.ttf) format('truetype');
+    }
+    #app-curtain {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #4d0414;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .curtain-mantra {
+      color: #fcf8f5;
+      font-family: 'Tibetan', sans-serif;
+      font-weight: 500;
+      font-size: 28px;
+      opacity: 0.8;
+    }
+
+    #app-curtain.hidden {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  </style>
   <meta charset="utf-8">
-  <!--
-  Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
-      https://cordova.apache.org/docs/en/latest/
-  Some notes:
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-      * Enable inline JS: add 'unsafe-inline' to default-src
-  -->
-  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: content:">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; connect-src 'self' https://tsurlukcalendar-coder.github.io; img-src 'self' data:; font-src 'self' data:;">  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
 
   <meta name="theme-color" content="#fff">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
-  <title>Calendar</title>
+  <title>Tsurlug</title>
   
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2196f3">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="stylesheet" href="css/framework7-icons.css">
   <link rel="stylesheet" href="framework7/framework7-bundle.min.css">
   <link rel="stylesheet" href="css/icons.css">
@@ -29,6 +48,9 @@
 </head>
 <body>
   <div id="app">
+    <div id="app-curtain">
+      <div class="curtain-mantra">ཀརྨ་པ་མཁྱེན་ནོ།</div>
+    </div>
     <!-- left panel with reveal effect-->
     <div class="panel panel-left panel-reveal panel-init" data-swipe="true" data-visible-breakpoint="760" data-swipe-only-close="true" data-swipe-no-follow="true">
       <div class="view">
@@ -52,7 +74,9 @@
             </div>
           </div>
           <div class="toolbar toolbar-bottom bg-color-red display-flex justify-content-center align-items-center">
-            <div class="title text-color-primary panel-toolbar"></div>
+            <div class="title text-color-primary panel-toolbar">
+              Kagyu Samye Ling Monastery
+            </div>
           </div>
           <div class="page-content left-panel-page">
             <div id="marquee">
@@ -75,35 +99,68 @@
                 <span class="khyenno">ཀརྨ་པ་མཁྱེན་ནོ།</span>
               </div>
             </div>
-            <img class="logo" loading="lazy" src="./assets/logo.png" alt="SL logo" width="300">
+            <img class="logo" src="./assets/logo.png" alt="SL logo" width="240">
             <div class="panel-content content-card">
               <div class="list accordion-list list-dividers margin-half inset">
                 <ul>
-                    <li class="accordion-item">
-                        <a href="" class="item-link item-content">
-                          <div class="item-inner padding-left-half padding-right-half margin-right-half">
-                              <div class="item-title text-color-red about-title">About</div>
-                          </div>
-                        </a>
-                        <div class="accordion-item-content">
-                          <div class="about-text block text-align-center"></div>
-                          
+                  <li class="accordion-item">
+                    <a href="" class="item-link item-content">
+                      <div class="item-inner padding-left-half padding-right-half margin-right-half">
+                        <div class="item-title text-color-red display-flex align-items-center">
+                          <i class="f7-icons text-color-blue margin-right-half">question_square</i>
+                          <span class="about-title">About</span>
                         </div>
-                        
-                    </li>
-                    <!-- <li class="accordion-item">
-                        <a href="" class="item-link item-content">
-                            <div class="item-inner padding-left-half padding-right-half margin-right-half">
-                                <div class="item-title text-color-red contact-title">Contact us</div>
-                            </div>
-                        </a>
-                        <div class="accordion-item-content text-align-center contact-text block">If you have suggstions Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic optio, repellat error excepturi nihil perferendis dignissimos natus facilis! In mollitia voluptas porro sapiente praesentium numquam nobis optio non nemo culpa.</div>
-                    </li> -->
+                      </div>
+                    </a>
+                    <div class="accordion-item-content">
+                      <div class="about-text block padding-top-half padding-bottom-half text-align-center"></div>
+                      
+                    </div>
+                    
+                  </li>
+                  <li>
+                    <a href="#" class="item-link item-content share-app" onclick=shareApp()>
+                      <div class="item-inner padding-left-half padding-right-half margin-right-half">
+                        <div class="item-title text-color-red display-flex align-items-center">
+                          <i class="f7-icons text-color-blue margin-right-half">square_arrow_up</i>
+                          <span class="share-title">Share</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="item-link item-content external-link" 
+                        onclick="openExternalLink(event, 'https://www.samyeling.org'); return false;">
+                        <div class="item-inner padding-left-half padding-right-half margin-right-half">
+                          <div class="item-title text-color-red display-flex align-items-center">
+                            <i class="f7-icons text-color-blue margin-right-half">link</i>
+                            <span class="website-title">Website</span>
+                          </div>
+                        </div>
+                      </a>
+                  </li>
+                  <li>
+                    <a href="#" class="item-link item-content" onclick="openExternalLink(event, 'https://www.facebook.com/kagyusamyeling'); return false;">
+                      <div class="item-inner padding-left-half padding-right-half margin-right-half">
+                        <div class="item-title text-color-red display-flex align-items-center">
+                          <i class="f7-icons text-color-blue margin-right-half">logo_facebook</i>
+                          <span class="fb-title">Facebook</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  
                 </ul>
               </div>
             </div>
             <div class="block text-color-red text-align-center semchen"></div>
-            <!-- <img class="astro-logo" src="./assets/astro-bg.png"> -->
+            <div class="version text-color-red" >
+              <div>© <span id="copyright-year"></span> Samye Ling</div>
+              <div>v 1.0  /  db <span id="db-version"></span></div>
+              <div><a href="#" class="text-color-red "onclick="openExternalLink(event, 'https://tsurlukcalendar-coder.github.io/tsurlugcalendar/privacy.html')">Privacy</a> / <a href="#" class="text-color-red "onclick="openLicenses(event)">Licenses</a></div>
+              
+            </div>
+
           </div>
         </div>
       </div>
@@ -118,7 +175,7 @@
         <div class="navbar-inner">
           <div class="left navbar-title">
             <div class="arrow-wrapper">
-              <a class="link back arrow-back">
+              <a class="link back text-color-yellow arrow-back">
                 <i class="icon icon-prev"></i>
               </a>
             </div>
@@ -143,7 +200,7 @@
               <img class="clouds-fm" loading="lazy" src="./assets/fmCloud.svg">
             </div>
           <div class="right">
-            <a href="#" class="link icon-only panel-open panel-icon" data-panel="left">
+            <a href="#" class="link icon-only panel-open text-color-primary panel-icon" data-panel="left">
               <i class="icon f7-icons">menu</i> 
             </a>
           </div>
@@ -152,12 +209,12 @@
       </div>
       <div class="navbar-hanger">
       <div class="tibetan-year text-color-red"></div>
-    </div>
+      </div>
       <!-- Bottom toolbar-->
       <div class="toolbar tabbar tabbar-icons toolbar-bottom bg-color-red">
         <div class="toolbar-inner">
           <a class="day-link link back">
-            <i class="f7-icons size-26">calendar_today</i>
+            <i class="f7-icons size-26">smallcircle_fill_circle</i>
             <span class="tabbar-label" id="day-toolbar"></span>
           </a>
           <a href="#" class="link navigate-month" >
@@ -173,11 +230,11 @@
 
       <div class="page" id="day-page" data-name="day">
         <div class="fab fab-today color-red fab-right-bottom">
-          <a href="#" onclick=goBackToday()>
+          <a href="#" onclick=goBackToday(event)>
             <i class="f7-icons">arrow_uturn_left</i>
           </a>
         </div>
-        <!-- Scrollable 
+        <!-- scrollable 
          page content-->
         <div class="page-content main-page smooth-scrolling">
           <div class="swiper day-swiper">
@@ -195,34 +252,163 @@
             <a class="swiper-button-next"></a>
         </div>
       </div>
-    </div>
+      </div>
     
-    <!-- Popover -->
-    <div class="popover select-language" data-close-by-outside-click="true">
+      <!-- Popover -->
+      <div class="popover select-language" data-close-by-outside-click="true">
       <!-- Popover's arrow -->
       <div class="popover-arrow"></div>
       <!-- Popover content -->
       <div class="popover-inner padding">
-        <div class="select-language-header text-color-red text-align-center margin-half"></div>
+        <div class="select-language-header text-color-blue text-align-center margin-half"></div>
         <div class="list list-strong list-dividers-ios">
           <ul>
-            <li><a class="list-button color-red select-language-btn to-tibetan tibetan" id="bo_Cn">བོད་ཡིག</a></li>
+            <li><a class="list-button color-red select-language-btn" id="bo_Cn">བོད་ཡིག</a></li>
             <li><a class="list-button color-red select-language-btn" id="en_GB">English</a></li>
           </ul>
         </div>
       </div>
+      </div>
+    </div>
+<!-- notices sheet modal -->
+<div class="sheet-modal" data-close-by-outside-click="true" data-swipe-to-close="true" id="licenses-sheet">
+  <div class="toolbar bg-color-red">
+    <div class="toolbar-inner">
+      <div class="left"></div>
+      <div class="title text-color-primary">Licenses</div>
+      <div class="right">
+        <a href="#" class="link sheet-close text-color-yellow">Close</a>
+      </div>
     </div>
   </div>
+  <div class="sheet-modal-inner">
+    <div class="page-content">
+      <div class="block">
+        <pre style="white-space: pre-wrap; font-size: 11px; line-height: 1.6;">
+THIRD-PARTY NOTICES
+This application makes use of the following open source software:
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Framework7
+Copyright © Vladimir Kharlampidi
+Licensed under the MIT License
+https://github.com/framework7io/framework7/blob/master/LICENSE
+
+Framework7 Icons
+Copyright © Vladimir Kharlampidi
+Licensed under the MIT License
+https://github.com/framework7io/framework7-icons/blob/master/LICENSE
+
+Dom7
+Copyright © Vladimir Kharlampidi
+Licensed under the MIT License
+https://github.com/framework7io/dom7/blob/master/LICENSE
+
+Swiper
+Copyright © Vladimir Kharlampidi
+Licensed under the MIT License
+https://github.com/nolimits4web/swiper/blob/master/LICENSE
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Apache Cordova
+Copyright © The Apache Software Foundation
+Licensed under the Apache License, Version 2.0
+https://github.com/apache/cordova/blob/master/LICENSE
+
+cordova-plugin-inappbrowser
+Copyright © The Apache Software Foundation
+Licensed under the Apache License, Version 2.0
+https://github.com/apache/cordova-plugin-inappbrowser/blob/master/LICENSE
+
+cordova-plugin-statusbar
+Copyright © The Apache Software Foundation
+Licensed under the Apache License, Version 2.0
+https://github.com/apache/cordova-plugin-statusbar/blob/master/LICENSE
+
+cordova-plugin-androidx-adapter (Android only)
+Copyright © 2019 Dave Alden / Working Edge Ltd.
+Licensed under the MIT License
+https://github.com/dpa99c/cordova-plugin-androidx-adapter/blob/master/LICENSE
+
+cordova-plugin-x-socialsharing
+Copyright © Eddy Verbruggen
+Licensed under the MIT License
+https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/blob/master/LICENSE
+
+cordova-plugin-minify
+Copyright © 2022 ContentAndCreations.nl
+Licensed under the MIT License
+https://github.com/ContentAndCreations/cordova-plugin-minify/blob/main/LICENSE
+
+es6-promise-plugin
+Copyright © 2014-15 Vlad Stirbu
+Licensed under the MIT License
+https://github.com/nicktindall/cyclon.p2p/blob/master/LICENSE
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Faculty Glyphic
+Copyright © 2024 The Faculty Glyphic Project Authors
+Licensed under the SIL Open Font License, Version 1.1
+https://github.com/DylanYoungKoto/FacultyGlyphic
+
+Noto Serif Tibetan
+Copyright © 2022 Google LLC
+Licensed under the SIL Open Font License, Version 1.1
+https://github.com/notofonts/tibetan
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SIL OPEN FONT LICENSE 1.1
+https://openfontlicense.org
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+MIT LICENSE
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+APACHE LICENSE 2.0
+http://www.apache.org/licenses/LICENSE-2.0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  </pre>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- CORDOVA_PLACEHOLDER_DONT_REMOVE -->
   <!-- Framework7 library -->
   <script src="framework7/framework7-bundle.min.js"></script>
+  <!-- Cordova APIs -->
+  <script src="js/cordova-app.js"></script>
   <!-- App routes -->
   <script src="js/routes.js"></script>
   <!-- App store -->
   <script src="js/store.js"></script>
   <!-- Calendar database -->
    <script src="js/database.js"></script>
+   <!-- years database -->
+   <script src="js/yearsData.js"></script>
    <!-- specials database -->
     <script src="js/specials.js"></script>
     <!-- astro influence database -->
@@ -232,14 +418,9 @@
    <!-- localization script -->
    <script src="js/locales.js"></script>
    <!-- templates -->
-    <script src="js/templates.js"></script>
+  <script src="js/templates.js"></script>
   <!-- App scripts -->
   <script src="js/app.js"></script>
-  <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js');
-  }
-  </script>
 </body>
 </html>
 

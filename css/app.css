@@ -2,7 +2,9 @@
 .device-cordova.device-ios {
   height: 100vh;
 }
-
+* {
+  touch-action: manipulation;
+}
 @font-face {
   font-display: swap;
   font-family: 'Faculty';
@@ -11,28 +13,14 @@
   src: url(../fonts/FacultyGlyphic-Regular.ttf) format('truetype');
 
 }
-
-/* @font-face {
-  font-display: swap;
-  font-family: 'Jomolhari';
-  font-style: normal;
-  font-weight: 400;
-  src: url(../fonts/Jomolhari-Regular.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Uchen';
-  src: url(../fonts/Uchen-Regular.ttf) format('truetype');
-} */
 @font-face {
   font-family: 'Tibetan';
   font-weight: 500;
-  /* ascent-override: 200%; */
   size-adjust: 105%;
   src: url(../fonts/NotoSerifTibetan-VariableFont_wght.ttf) format('truetype');
 }
 :root { 
   --f7-font-family: 'Faculty', 'Tibetan';
-  /* --f7-navbar-large-title-font-size: 1.3rem; */
   --f7-list-chevron-icon-color: var(--f7-color-green);
   --f7-list-item-title-white-space: wrap;
   --f7-font-size: 16px;
@@ -42,12 +30,12 @@
   --swiper-navigation-size: 2.1rem;
   --swiper-navigation-top-offset: calc(50vw + 8px);
   --swiper-navigation-sides-offset: 4px;
-  --swiper-navigation-color: var(--f7-color-yellow);
+  --swiper-navigation-color: var(--f7-color-green);
   --f7-preloader-modal-padding: 8px;
   --f7-preloader-modal-bg-color: rgba(255,255,255,0.7);
-  --f7-toast-font-size: 1.4rem;
+  --f7-toast-font-size: 1.3rem;
   --f7-toast-max-width: 350px;
-  --yellow-border: rgba(234, 208, 185, 0.3)
+  --yellow-border: rgba(212, 164, 92, 0.3)
 }
 
 .ios{
@@ -66,7 +54,7 @@
   --f7-fab-text-color: var(--f7-color-primary);
   --f7-list-item-border-color: var(--yellow-border);
   --f7-list-margin-vertical: 8px;
-  --f7-list-link-pressed-bg-color: rgba(0, 0, 0, 0.15);
+  --f7-list-link-pressed-bg-color: rgba(77, 4, 20, 0.15);
 
 }
 /* resizing for smaller screens */
@@ -144,9 +132,6 @@
   }
 }
 @media (min-width: 759px){
-  /* .main-title{
-    display: none !important;
-  } */
   :root{
     --swiper-navigation-top-offset: calc(((100vw - 360px) / 2) + 8px);
     --swiper-navigation-sides-offset: 4px !important;
@@ -171,7 +156,7 @@
 }
 .accordion-item-content {
   font-size: 1rem !important;
-  color: #210a0a !important
+  color: var(--f7-color-black) !important
 
 }
 .navbar-hanger{
@@ -189,42 +174,43 @@
 .tibetan-year{
   text-align: center;
   width: 60%;
-  border: 2px solid var(--f7-color-red);
+  border: 2px solid var(--f7-color-black);
   border-top: none;
   border-left: none;
   border-radius: 0 0 24px 0px;
   padding: 3px;
   background-color: rgba(255,255,255,0.9);
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 600;
 }
-.toolbar-inner > a{
-  margin-top: -4px;
+.tabbar a.active-nav {
+  /* border-top: 2px solid var(--f7-color-yellow); */
+  color: var(--f7-color-yellow);
 }
-
 .size-26 { font-size: 26px }
 .main-title, .panel-title{
   padding: 8px;
 }
 /* background motif */
 .page-content.main-page, .left-panel-page{
-  padding-top: 60px;
+  padding-top: calc(var(--f7-safe-area-top) + 60px);
   background-attachment: scroll;
   background-position: calc(50% + 2px) 50%;
   background-size: auto;
   background-repeat: repeat;
-  background-position-y: 60px;
-  background-image: url(../assets/backdrop2.png);
+
+  background-position-y: calc(var(--f7-safe-area-top) + 60px);
+  background-image: url(../assets/backdrop_medium.png);
 }
 .smooth-scrolling{
   scroll-behavior: smooth;
 }
 .left-panel-page{
-  border-right: 2px solid var(--f7-color-red)
+  border-right: 2px solid var(--f7-color-red);
 }
 .select-language-header{
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* Day swiper element styling below */
@@ -334,6 +320,7 @@ margin: auto;
   font-weight: 600;
   display: flex;
   justify-content: center;
+  text-align: center;
   padding: 4px;
   border: 2px solid var(--f7-color-red);
   /* top: calc(var(--f7-navbar-height) + var(--f7-safe-area-top)) !important; */
@@ -341,23 +328,18 @@ margin: auto;
 .day-card-bottom > .day-card-bottom-content > .day{
   font-size: 1.5rem;
   line-height: 1.7;
-  color: var(--f7-color-green);
+  color: var(--f7-color-yellow);
   font-weight: 600;
   flex-basis: 35%;
 }
 
 .day-card-bottom > .day-card-bottom-content > .date{
-  color: var(--f7-color-yellow);
+  color: var(--f7-color-blue);
   font-size: 1.5rem;
   font-weight: 600;
   flex-basis: 35%;
   margin-bottom: 30%;
 }
-/* .day-card-bottom > .day-card-bottom-content > .bottom-content-filler{
-  min-height: 20%;
-  flex-shrink: 0;
-} */
-
 
 /* ////////////////  specials card styling   ////////////////// */
 .specials-card{
@@ -380,7 +362,6 @@ margin: auto;
   padding-top: 4px;
   padding-bottom: 4px;
 }
-
 
 .specials-card-content{
   display: flex;
@@ -408,7 +389,7 @@ margin: auto;
 }
 .specials-card-text{
   font-size: 1rem;
-  color: #150606;
+  color: var(--f7-color-black);
   margin: 8px;
   padding-left: 4px;
 }
@@ -435,7 +416,6 @@ margin: auto;
   flex-direction: column;
   padding: 2px;
 }
-
 .month-header{
   background-image: url(../assets/month.svg);
   background-repeat: no-repeat;
@@ -468,13 +448,17 @@ margin: auto;
   gap: 12px;
 }
 .month-navigation-next, .month-navigation-prev{
-  padding: 0px 16px 10px;
-  color: var(--f7-color-yellow);
-  height: 30px;
+  padding: 16px 24px 8px 24px;
+  color: var(--f7-color-green);
+  height: 40px;
   width: 60px;
+  opacity: 0.5;
 }
 .month-navigation-next{
   text-align: end;
+}
+.swiper-button-next, .swiper-button-prev{
+  opacity: 0.6;
 }
 .month-navigation-next.active-state, .month-navigation-prev.active-state, .swiper-button-next.active-state, .swiper-button-prev.active-state{
   opacity: 0.2 !important;
@@ -484,28 +468,32 @@ margin: auto;
   flex-direction: column;
   justify-content: flex-start;
   padding-top: 19%;
+  padding-right: 4px;
 }
 .west-month-header{
   flex-wrap: nowrap;
   white-space: nowrap;
-  color: var(--f7-color-yellow);
-  font-size: 1.1rem;
-  font-weight: 500;
+  color: var(--f7-color-blue);
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1.5;
   text-align: right;
 }
 .tib-month-name{
   color: var(--f7-color-red);
   font-size: 1.4rem;
+  font-weight: 600;
   line-height: 1.4;
   text-align: center;
 }
+
 .month-navigation{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 0px;
 }
+
 .month-card > .grid > .day-slot:nth-child(even){
   background-color: rgba(253, 234, 243, 0.2);
   border: 1px solid var(--yellow-border);
@@ -520,10 +508,10 @@ margin: auto;
   aspect-ratio: 1 / 1.2;
 }
 .month-card > .grid > .day-slot.active-state{
-  background-color: rgba(0, 0, 0, 0.15) !important;
+  background-color: rgba(77, 4, 20, 0.15) !important;
 }
 .month-card > .grid > .day-slot.today-slot{
-  border: 2px solid var(--f7-color-yellow);
+  border: 3px solid var(--f7-color-red);
 }
 .e-slot{
   flex-basis: 30%;
@@ -560,7 +548,7 @@ margin: auto;
 .t-slot{
   font-stretch: narrower;
   flex-basis: 60%;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--f7-color-red);
   display: flex;
   justify-self: center;
@@ -569,22 +557,23 @@ margin: auto;
 }
 .w-slot{
   flex-basis: 40%;
-  color: var(--f7-color-yellow);
+  color: var(--f7-color-blue);
   display: flex;
   align-self: end;
   align-items: center;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
-  padding-right: 1vw;
+  padding-right: 1.1vw;
 }
 .swiper-slide > .main-content > .month-card > .grid > .first-west-day {
-  border-left: 2px solid var(--f7-color-yellow);
+  border-left: 3px solid var(--f7-color-blue);
 }
 .month-card > .grid > .week-day-slot{
-  color: var(--f7-color-green);
+  color: var(--f7-color-yellow);
   text-align: center;
   padding-bottom: 10px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 /* ////////////////////month specials////////// */
@@ -613,17 +602,17 @@ margin: auto;
 .month-specials-day{
   color: var(--f7-color-yellow);
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 500;
 
 }
 .month-specials-tDay{
   color: var(--f7-color-red);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
 
 }
 .month-specials-header{
-  color: var(--f7-color-red);
+  color: var(--f7-color-black);
   font-size: 1.1rem;
   display: flex;
   flex-direction: column;
@@ -631,14 +620,6 @@ margin: auto;
   align-items: flex-start; 
   line-height: 1.7;
 }
-
-/* .month-specials-date{
-  color: var(--f7-color-yellow);
-  font-weight: 500;
-  text-align: right;
-  font-size: 1.2rem ;
-} */
-
 
 .month-specials-content > img{
   width: 65%;
@@ -651,8 +632,10 @@ margin: auto;
   font-size: 1rem;
 }
 .logo{
-  margin: 8px auto;
+  margin: 16px auto;
+  padding-bottom: 8px;
   display: block;
+  opacity: 0.85;
 }
 .panel-content{
   /* height: calc(100% - 332px); */
@@ -661,7 +644,6 @@ margin: auto;
 }
 .semchen > p{
   padding: 8px;
-  font-size: 17px;
 }
 .astro-logo{
   width: 70%;
@@ -697,10 +679,10 @@ margin: auto;
   margin-bottom: 32px !important;
 }
 .specials-card-header.astrology-header{
-  /* border-bottom: 1px solid var(--f7-color-red); */
   align-self: center;
   width: 100%;
   padding-right: 8px;
+  color: var(--f7-color-red)
 }
 .astro-wrapper{
   margin: 8px 0 16px 0;
@@ -727,9 +709,9 @@ margin: auto;
 
 .astro-category-header{
   font-size: 1.1rem;
-  margin: 30px 0px 8px 12px;
+  margin: 30px 12px 8px 12px;
   font-weight: 600;
-  color: var(--f7-color-yellow);
+  color: var(--f7-color-blue);
   text-align: center;
 }
 .astro-entry > img{
@@ -749,6 +731,7 @@ margin: auto;
   transition: color 1.5s ease-in-out;
 }
 .astro-text{
+  color: var(--f7-color-black);
   margin: 4px 4px 14px 8px;
   transition: color 1.5s ease-in-out;
 }
@@ -805,7 +788,7 @@ margin: auto;
   border-radius: 50%;
   width: 46px;
   height: 46px;
-  background: radial-gradient(rgb(249, 240, 234) 60%, rgba(87, 0, 17, 0.396) 80%, rgba(87, 0, 17, 0.008) 100%);
+  background: radial-gradient(rgb(249, 240, 234) 60%, rgba(77, 4, 20, 0.396) 80%, rgba(77, 4, 20, 0.008) 100%);
   filter: blur(1px);
   opacity: 0;
   transition: opacity 1000ms ease-in-out;
@@ -837,11 +820,6 @@ margin: auto;
   width: 36px;
   height: 36px;
 }
-/* .karmapa-moon > img{
-  z-index: 2500;
-  opacity: 0.8;
-  transition: opacity 400ms ease-in-out;
-} */
 
 .sphere {
   border-radius: 100%;
@@ -920,4 +898,23 @@ margin: auto;
   }
 }
 
+.version{
+  text-align: center; 
+  font-size: 12px;
+  margin-top: 96px;
+  margin-bottom: 8px;
+}
 
+.day-swiper, .month-swiper {
+  will-change: height;
+  contain: layout;
+}
+.panel-in-breakpoint ~ .panel-backdrop {
+  pointer-events: none;
+}
+#app-curtain.hidden {
+  opacity: 0;
+}
+.about-text{
+  color: var(--f7-color-black)
+}

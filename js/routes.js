@@ -1,122 +1,103 @@
-
 var routes = [
-  // index page, day page
+
+  // Day page
   {
     path: '/home/',
     url: '/index.html',
-    pageName: 'day',
     keepAlive: true,
-    // force: true,
     on: {
-      pageBeforeOut: function(){
+      pageBeforeOut() {
         app.fab.close($('.fab-not-today'))
       }
     }
   },
-  // month page
+
+  // Month page
   {
     path: '/month/',
     name: 'month',
     url: './pages/month.html',
     keepAlive: true,
-    // function which assures that when navigating back to day swiper via toolbar icon lands back on slide from which month was entered
-    beforeLeave: function({resolve}) {
-      // variable to indicate to event listener on page reinit whether to slide to a target slide
-      const daySlides = $('#day-wrapper').children()
-      let firstSlideID = daySlides.eq(0).attr('id')
-      let lastSlideID = daySlides.eq(-1).attr('id')
-      let targetSlide = null
-      daySlides.each(function() {
-          if ($(this).attr('id') == newID){
-            targetSlide = $(this)
-          }
-        })
-      if (targetSlide !== null){
-        if(targetSlide.is('.swiper-slide-active')){
-         resolve()
-        $('.arrow-back, .arrow-back-panel').hide() 
-        }
-      }
-      else if (targetSlide === null || (lastSlideID - newID) < 1 || (newID - firstSlideID) < 1){
-        stopTransitionEndEvent = 1
-        initialID = newID
-        if (newID < 3){
-          slides = newID
-          remakeDaySwiper(slides, 'beginning')
-        }
-        else if (newID > (database.length - 4)){
-          slides = (database.length - 1) - newID
-          remakeDaySwiper(slides, 'end')
-        }
-        else {remakeDaySwiper()}
-        // remake swiper if it's too far
-        
-        if (newID < firstSlideID){
-          daySwiper.slideTo(4,0,false)
-        }
-        else{
-          daySwiper.slideTo(2,0,false)
-        }
-        stopTransitionEndEvent = 0
-        targetSlide = $('#day-wrapper').children('.initial-slide')
-      }
-      
-        let targetIndex = targetSlide.index();
-        setTimeout(() => {
-          daySwiper.slideTo(targetIndex, 300)
-        }, 10);
-        
-        $('.arrow-back, .arrow-back-panel').hide()
-        resolve()
-      
-      
+
+    // On back navigation, slide day swiper to the last viewed or selected day
+    beforeLeave({ resolve }) {
+      if (daySwiper) daySwiper.slideTo(newID, 0, false)
+      $('.arrow-back, .arrow-back-panel').hide()
+      resolve()
     },
+
+    // Manual keepAlive — pageMounted fires every visit with url: routing,
+    // so we guard with the monthSwiper instance check instead
     on: {
-      pageAfterIn: function(){
-        $('.day-link').addClass('back')
-        if($('.panel-in-breakpoint').length > 0){
-          $('.arrow-back-panel').show()
+      pageMounted() {
+        if (monthSwiper) {
+          setTimeout(() => monthSwiper.update(), 350)
+          return
         }
-        else{
-        $('.arrow-back').show()
+        monthSwiper = new Swiper('.month-swiper', monthSettings)
+        // Populate only the initial slide synchronously — rest deferred to pageBeforeIn
+        const activeSlide = $('.month-swiper .swiper-slide-active')
+        if (activeSlide.hasClass('new-slide')) {
+          activeSlide.html(monthTemplate)
+          structureMonth(activeSlide)
+          getMonthSpecials(activeSlide)
+          populateMonth(activeSlide)
+          activeSlide.removeClass('new-slide')
         }
-       showFlag()
       },
-      pageBeforeIn: function(){
-        if(monthTranslationPending === 1){
-          $('#month-wrapper').children().each(function(){
+
+      pageBeforeIn() {
+        // Flush any pending language translation from day swiper
+        if (sessionStorage.getItem('monthTransPending')) {
+          $('#month-wrapper').children().each(function () {
             populateMonth($(this))
           })
-          monthTranslationPending = 0
+          sessionStorage.removeItem('monthTransPending')
         }
-        
+
+        // Populate any new slides added since last visit
+        requestAnimationFrame(() => makeMonths())
+
+        // Sync month swiper to match the active day slide
         const activeDaySlide = $('#day-wrapper').children('.swiper-slide-active')
-        newID = parseInt(activeDaySlide.attr('id'))
-        const newMonthID = activeDaySlide.data('detail').monthID
-        if(!($('#month-wrapper').children('.swiper-slide-active').attr('id').slice(1) === newMonthID)){
+        newID = parseInt(activeDaySlide.data('id') ?? activeDaySlide.attr('id'))
+
+        const newMonthID = database[newID]?.monthID
+        if (!newMonthID) return
+
+        const activeMonthSlideID = $('#month-wrapper').children('.swiper-slide-active').attr('id')
+        if (!activeMonthSlideID) return
+
+        if (activeMonthSlideID.slice(1) != newMonthID) {
           let targetIndex
-          $('#month-wrapper').children().each(function(){
-            if ($(this).attr('id').slice(1) == newMonthID){
-              targetIndex = $(this).index()
-            }
+          $('#month-wrapper').children().each(function () {
+            if ($(this).attr('id').slice(1) == newMonthID) targetIndex = $(this).index()
           })
-          monthSwiper.slideTo(targetIndex, 0)
+          if (targetIndex !== undefined) monthSwiper.slideTo(targetIndex, 0)
         }
-      
       },
-      pageAfterOut: function(){
+
+      pageAfterIn() {
+        $('.day-link').addClass('back')
+        $('.panel-in-breakpoint').length > 0
+          ? $('.arrow-back-panel').show()
+          : $('.arrow-back').show()
+        showFlag()
+        sortMonthFAB()
+        populateTibetanYear()
+        monthSwiper.updateAutoHeight()
+      },
+
+      pageAfterOut() {
         showMoon()
-      },
-    },
-    once: {
-      pageInit: function () {
-        monthSwiper = new Swiper('.month-swiper', monthSettings)
       }
-    },
+    }
   },
-  // Default route (404 page). MUST BE THE LAST
+
+  // 404
   {
     path: '(.*)',
     url: './pages/404.html',
-  },
-];
+  }
+
+]
